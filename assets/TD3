@@ -1,0 +1,152 @@
+1) Ecrire une procédure CreerLBi :
+
+Procédure CreerLBi(n :Entier ; L: Liste)
+Var
+Tête, P: liste
+i : Entier
+Début
+Allouer (Tête)
+Ecrire ("Entrer un entier :") 
+Lire (Tête*.Elem)
+Tête*.Pred <- Nil
+Tête*.Suiv <- Nil
+L<-Tête
+Pour i de 2 à n Faire
+Allouer(P)
+Ecrire("Entrer un entier:") Lire (P*.Elem)
+P*.Pred <-L
+P*.Suiv <-Nil
+L*.Suiv <- P
+L<-P
+FinPour
+L<-Tête
+Fin
+2)Ecrire une procédure AjouterTete:
+Procédure AjouterTete(L:liste, x:entier)
+    Var
+     P: liste
+    Début
+    p ← Allouer(size(element)) 
+    p*.valeur ← x
+    p*.pred ← NIL
+    p*.suiv ← NIL
+    Si (L.tête = NIL )Alors
+        L.tête ← p
+        L.queue ← p
+    Sinon
+        p*.suiv ← L.tête
+        (L.tête)*.pred ← p
+        L.tête ← p
+    Fin Si
+Fin 
+
+3)Ecrire une procédure AjouterQueue:
+Procédure AjouterQueue(L:liste, x:entier)
+    Var
+     P: liste
+    Début
+    p ← Allouer(size(p))
+    P*.val ← x
+    P*.suiv ← NIL
+    P*.pred ← NIL
+    Si (L.tête = NIL )Alors
+        L.tête ← p
+        L.queue ← p
+    Sinon
+       P^.pred ← l.queue
+        (l.queue)*.suiv ← p
+        l.queue ← p
+    Fin Si
+Fin Procédure
+
+4)Ecrire la fonction Rechercher:
+Fonction Rechercher(L:liste, x:entier)
+    Var
+     P: liste
+    Début
+    p ← L.tête
+    Tant que (p ≠ NIL) faire
+        Si (p*.val = x )Alors
+            Rechercher<- p 
+        Fin Si
+        p ← p*.suiv
+    Fin Tant que
+    Rechercher<- NIL  
+Fin 
+
+5)Ecrire une procédure InsererApres:
+Procédure InsererApres(L:liste, val_cible:entier, x:entier)
+     Var
+     q,P: liste
+    Début
+    p ← L.tête
+    Tant que (p ≠ NIL) et (p*.val ≠ val_cible )faire
+        p ← p*.suiv
+    Fin Tant que
+    Si (p = NIL )Alors
+        ecrire("Élément cible non trouvé") 
+    Fin Si
+    q ← Allouer(size(elemnt))
+    q*.val ← x
+    q*.suiv ← p*.suiv
+    q*.pred ← p
+    p.suivant ← q
+    Si (q*.suiv ≠ NIL) Alors
+        (q.suiv)*.pred ← q
+    Sinon
+        L.queue ← q
+    Fin Si
+Fin 
+6)Réécrire la procédure AjouterQueue en utilisant la procédure InsererApres:
+Procédure AjouterQueue(L:liste, x:entier)
+    Var
+    Début
+    Si(L.tête = NIL) Alors
+        AjouterTete(L, x)
+    Sinon
+        InsererApres(L, (L.queue)*.val, x)
+    Fin Si
+Fin 
+7)Ecrire une procédure SupprimerVal (en utilisant la procédure Rechercher):
+Procédure SupprimerVal(L:liste, x:entier)
+    Var
+    p:liste
+    Début
+    p ← Rechercher(liste, x)
+    Si (p= NIL) Alors
+        ecrire("Valeur non trouvée") 
+    Fin Si
+    Si (p = L.tête )Alors
+        L.tête ← P*.suivant
+        Si (L.tête ≠ NIL) Alors
+            (L.tête)*.pred← NIL
+        Sinon
+            L.queue ← NIL
+        Fin Si
+    Sinon Si (p = L.queue )Alors
+        L.queue ← p*.pred
+        (L.queue)*.suiv ← NIL
+    Sinon
+        p.suivant ← p*.pred
+    Fin Si
+Fin 
+8)procédure SupprimerQueue 
+procédure SupprimerQueue (L : DL) 
+Var
+ P: SL
+Début
+    Si (vide_DL(L) = faux) alors  
+        P ← L.Queue               
+        Si (L.Queue = L.Tete) alors   
+            L.Tete ← NIL
+            L.Queue ← NIL
+        Sinon
+            L.Queue ← L.Queue.precedent    
+            L.Queue.suivant ← NIL         
+        FinSi
+        Libérer(P)             
+    FinSi
+Fin
+
+
+

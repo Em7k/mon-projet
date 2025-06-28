@@ -1,0 +1,926 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'client') {
+    header("Location: login.php");
+    exit();
+}
+echo "Bienvenue CLIENT " . $_SESSION['user'];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Les délices de Gomez</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="home.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Les délices de Gomez</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Accueil<br></a></li>
+          <li><a href="#about">	À propos</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#events">Événements</a></li>
+          <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li class="dropdown"><a href="#"><span>Commande</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="commande.php">Passer Commande</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="home.html#book-a-table">Réserver une Table</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="hero" class="hero section light-background">
+      <div class="container">
+        <div class="row gy-4 justify-content-center justify-content-lg-between">
+          <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">Savourez votre nourriture<br>saine et délicieuse</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Découvrez une expérience culinaire unique, alliant saveurs authentiques et ambiance conviviale.</p>
+            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+              <a href="#book-a-table" class="btn-get-started">Réservation</a>
+              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <img src="assets/img/menu/Dn4.jpg" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Apropo section -->
+    <section id="about" class="about section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Qui sommes-nous ?<br></h2>
+        <p><span>En savoir plus sur</span> <span class="description-title">Les délices de Gomez</span></p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/about6.jpg" class="img-fluid mb-4" alt="">
+            <div class="book-a-table">
+              <h3>Réservation</h3>
+              <p>+243815226902</p>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Les Délices de Gomez est une invitation à voyager à travers les saveurs du monde. Dans un cadre élégant et raffiné, nous vous proposons une cuisine fusion unique, où l’art culinaire se rencontre avec les traditions de différentes cultures.
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Chaque plat est une véritable exploration gustative, alliant des ingrédients de qualité soigneusement sélectionnés pour créer des associations de saveurs surprenantes.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Nos recettes fusionnées sont un hommage à la diversité culinaire du monde entier.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Notre équipe met un point d'honneur à offrir une expérience culinaire inoubliable, dans une ambiance chic et chaleureuse.</span></li>
+              </ul>
+              <p>
+                Nous nous assurons que chaque détail est pensé pour sublimer votre moment, pour que vous profitiez d'une expérience unique, élégante et savoureuse.
+              </p>
+            
+              <div class="position-relative mt-4">
+                <video controls class="btn-watch-video d-flex align-items-center" width="640" height="360">
+                  <source src="assets/videos/video.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <section id="why-us" class="why-us section light-background">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-box">
+              <h3>Pourquoi choisir Les Délices de Gomez ?</h3>
+              <p>
+              Les Délices de Gomez vous invite à une aventure culinaire unique, où l’art de la cuisine rencontre les traditions gastronomiques du monde entier.  
+                Nos plats sont élaborés avec des ingrédients frais, soigneusement sélectionnés pour offrir une fusion de saveurs étonnantes et mémorables.
+              </p>
+              <div class="text-center">
+                <a href="#" class="more-btn"><span>En savoir plus</span> <i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-xl-4">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-clipboard-data"></i>
+                  <h4>Plats faits maison</h4>
+                  <p>Nos plats sont préparés avec soin à partir de produits frais et locaux, afin de vous offrir une expérience culinaire authentique.</p>
+                </div>
+              </div>
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-gem"></i>
+                  <h4>Cuisine fusion créative</h4>
+                  <p>Nos recettes mélangent harmonieusement les saveurs de différentes cultures, pour des plats innovants et savoureux.</p>
+                </div>
+              </div>
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-inboxes"></i>
+                  <h4>Ambiance chic et conviviale</h4>
+                  <p>Notre cadre élégant et notre service soigné vous garantissent une expérience mémorable, à chaque visite.</p>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section><!-- fin apropos -->
+    
+    <!-- Statistiques Section -->
+    <section id="stats" class="stats section dark-background">
+
+      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clients</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p>plats</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Partenaires</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Travailleurs</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- fin statistique -->
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Notre Menu</h2>
+        <p><span>Découvrez notre</span> <span class="description-title">Menu des Délices de Gomez</span></p>
+      </div>
+      <div class="container">
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+                    <h4>Entrées</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+                    <h4>Petit-déjeuner</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+                    <h4>Déjeuner</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
+                    <h4>Dîner</h4>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+            <div class="tab-pane fade active show" id="menu-starters">
+                <div class="tab-header text-center">
+                    <p>Menu</p>
+                    <h3>Entrées</h3>
+                </div>
+                <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Dn6.webp" class="glightbox"><img src="assets/img/menu/Dn6.webp" class="menu-img img-fluid" alt=""></a>
+                        <h4>Truffes aux Saveurs d'Automne</h4>
+                        <p class="ingredients">Mélange subtil de champignons et truffes fraîches</p>
+                        <p class="price">35DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Dn5.jpeg" class="glightbox"><img src="assets/img/menu/Dn5.jpeg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Tartare de Thon aux Agrumes</h4>
+                        <p class="ingredients">Thon frais mariné, agrumes et herbes de Provence</p>
+                        <p class="price">45DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Dn4.jpg" class="glightbox"><img src="assets/img/menu/Dn4.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Foie Gras Poêlé au Cidre</h4>
+                        <p class="ingredients">Foie gras mi-cuit, sauce au cidre et pommes caramélisées</p>
+                        <p class="price">30DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Dn3.webp" class="glightbox"><img src="assets/img/menu/Dn3.webp" class="menu-img img-fluid" alt=""></a>
+                        <h4>Escargots à la Bourguignonne</h4>
+                        <p class="ingredients">Escargots frais, beurre à l'ail et persil, cuits à la perfection</p>
+                        <p class="price">45DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Dn2.webp" class="glightbox"><img src="assets/img/menu/Dn2.webp" class="menu-img img-fluid" alt=""></a>
+                        <h4>Velouté de Potimarron au Chèvre</h4>
+                        <p class="ingredients">Soupe crémeuse de potimarron, fromage de chèvre, croûtons dorés</p>
+                        <p class="price">50DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Dn1.jpg" class="glightbox"><img src="assets/img/menu/Dn1.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Carpaccio de Bœuf à la Truffe</h4>
+                        <p class="ingredients">Fine tranche de bœuf, huile de truffe et roquette</p>
+                        <p class="price">25DT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="menu-breakfast">
+                <div class="tab-header text-center">
+                    <p>Menu</p>
+                    <h3>Petit-déjeuner</h3>
+                </div>
+                <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/pdj1.jpeg" class="glightbox"><img src="assets/img/menu/pdj1.jpeg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Formule Confort
+                        </h4>
+                        <p class="ingredients">Boisson chaude (café ou thé)
+                          Jus d’orange
+                          3 mini-viennoiseries par personne
+                          Mini pain au chocolat
+                          Mini croissant
+                          Mini pain au raisin
+                          Verrine de fruits frais</p>
+                        <p class="price">25DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/pdj2.jpg" class="glightbox"><img src="assets/img/menu/pdj2.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Pancakes aux Fruits Rouges</h4>
+                        <p class="ingredients">Pancakes légers, fruits rouges frais, sirop d'érable</p>
+                        <p class="price">35DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/pdj3.avif" class="glightbox"><img src="assets/img/menu/pdj3.avif" class="menu-img img-fluid" alt=""></a>
+                        <h4>Granola Maison au Yaourt Grec</h4>
+                        <p class="ingredients">Granola croquant, yaourt grec, miel, fruits frais</p>
+                        <p class="price">20DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/pdj4.jpg" class="glightbox"><img src="assets/img/menu/pdj4.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Toast à l'Avocat et Œuf au Plat</h4>
+                        <p class="ingredients">Pain de campagne grillé, avocat frais, œuf au plat</p>
+                        <p class="price">25DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/pdj5.jpg" class="glightbox"><img src="assets/img/menu/pdj5.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Croissant au Beurre et Confiture Maison</h4>
+                        <p class="ingredients">Croissant fait maison, beurre frais, confiture de fruits de saison</p>
+                        <p class="price">20DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/pdj6.jpg" class="glightbox"><img src="assets/img/menu/pdj6.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Café Gourmand</h4>
+                        <p class="ingredients">Expresso accompagné de mignardises maison</p>
+                        <p class="price">15DT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="menu-lunch">
+                <div class="tab-header text-center">
+                    <p>Menu</p>
+                    <h3>Déjeuner</h3>
+                </div>
+                <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/E1.jpg" class="glightbox"><img src="assets/img/menu/E1.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Filet de Bar aux Agrumes</h4>
+                        <p class="ingredients">Filet de bar grillé, sauce aux agrumes, légumes croquants</p>
+                        <p class="price">50DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/E2.jpg" class="glightbox"><img src="assets/img/menu/E2.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Risotto au Safran et Coquilles Saint-Jacques</h4>
+                        <p class="ingredients">Risotto crémeux, coquilles saint-jacques poêlées, bouillon au safran</p>
+                        <p class="price">75DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/E3.jpg" class="glightbox"><img src="assets/img/menu/E3.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Magret de Canard aux Figues</h4>
+                        <p class="ingredients">Magret de canard rôti, sauce aux figues et vin rouge</p>
+                        <p class="price">55DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/E4.jpg" class="glightbox"><img src="assets/img/menu/E4.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Lasagnes aux Truffes</h4>
+                        <p class="ingredients">Lasagnes maison, sauce béchamel à la truffe, parmesan râpé</p>
+                        <p class="price">75DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/E5.webp" class="glightbox"><img src="assets/img/menu/E5.webp" class="menu-img img-fluid" alt=""></a>
+                        <h4>Salade César au Poulet Rôti</h4>
+                        <p class="ingredients">Salade croquante, poulet rôti, sauce César maison</p>
+                        <p class="price">50DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/E6.webp" class="glightbox"><img src="assets/img/menu/E6.webp" class="menu-img img-fluid" alt=""></a>
+                        <h4>Burger Gourmet au Boeuf Wagyu</h4>
+                        <p class="ingredients">Pain brioché, bœuf Wagyu, fromage affiné, légumes frais</p>
+                        <p class="price">65DT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="menu-dinner">
+                <div class="tab-header text-center">
+                    <p>Menu</p>
+                    <h3>Dîner</h3>
+                </div>
+                <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Di1.avif" class="glightbox"><img src="assets/img/menu/Di1.avif" class="menu-img img-fluid" alt=""></a>
+                        <h4>Filet Mignon Sauce Truffe</h4>
+                        <p class="ingredients">Filet mignon tendre, sauce à la truffe noire</p>
+                        <p class="price">85DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Di2.jpeg" class="glightbox"><img src="assets/img/menu/Di2.jpeg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Lobster Roll</h4>
+                        <p class="ingredients">Rolls de homard frais, beurre citronné, herbes aromatiques</p>
+                        <p class="price">75DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Di3.jpg" class="glightbox"><img src="assets/img/menu/Di3.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Chateaubriand au Poivre</h4>
+                        <p class="ingredients">Steak Chateaubriand, sauce au poivre, purée de pommes de terre</p>
+                        <p class="price">85DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Di4.jpg" class="glightbox"><img src="assets/img/menu/Di4.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Saint-Jacques en Croûte de Sésame</h4>
+                        <p class="ingredients">Saint-Jacques poêlées, croûte de sésame, réduction de vin blanc</p>
+                        <p class="price">55DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Di5.jpg" class="glightbox"><img src="assets/img/menu/Di5.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Raviolis Maison à la Truffe</h4>
+                        <p class="ingredients">Raviolis maison, farce à la truffe, beurre de sauge</p>
+                        <p class="price">65DT</p>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/Di6.jpg" class="glightbox"><img src="assets/img/menu/Di6.jpg" class="menu-img img-fluid" alt=""></a>
+                        <h4>Rôti d'Agneau aux Herbes</h4>
+                        <p class="ingredients">Agneau rôti, herbes fraîches, légumes de saison</p>
+                        <p class="price">75DT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    </section><!--fin Menu Section -->
+
+    <!-- Section Témoignages -->
+<section id="temoignages" class="testimonials section light-background">
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>TÉMOIGNAGES</h2>
+    <p>Ce que disent nos <span class="description-title">clients satisfaits</span></p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          }
+        }
+      </script>
+
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <div class="row gy-4 justify-content-center">
+              <div class="col-lg-6">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    <span>Une expérience culinaire inoubliable ! Les plats sont délicieux, le service est impeccable et l’ambiance est digne des plus grands restaurants. Bravo à toute l’équipe des Délices de Gomez !</span>
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                  <h3>fellycia kisukika.</h3>
+                  <h4>Cliente fidèle</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 text-center">
+                <img src="assets/img/testimonials/c2.jpg" class="img-fluid testimonial-img" alt="Élodie K.">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <div class="row gy-4 justify-content-center">
+              <div class="col-lg-6">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    <span>Le mélange des cultures dans les assiettes est simplement exceptionnel. Chaque bouchée est une découverte. Je recommande vivement Les Délices de Gomez à tous les amoureux de bonne cuisine.</span>
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                  <h3>Quentin Awring</h3>
+                  <h4>Chef invité</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 text-center">
+                <img src="assets/img/testimonials/c1.jpg" class="img-fluid testimonial-img" alt="Jean-Benoît M.">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <div class="row gy-4 justify-content-center">
+              <div class="col-lg-6">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    <span>Un service chaleureux, une décoration raffinée et des plats qui font voyager. J’ai adoré chaque moment passé dans ce restaurant. Une perle rare à découvrir sans tarder !</span>
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                  <h3>Parfaite Mulenga</h3>
+                  <h4>Blogueuse culinaire</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 text-center">
+                <img src="assets/img/testimonials/c3.jpg" class="img-fluid testimonial-img" alt="Naomie T.">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+
+    </div>
+  </div>
+
+</section>
+<!-- Fin Section Témoignages -->
+
+    <!-- Section Événements -->
+<section id="evenements" class="events section">
+
+  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 1
+            }
+          }
+        }
+      </script>
+
+      <div class="swiper-wrapper">
+        <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/events-11.jpg)">
+          <h3>Soirées Privées sur Mesure</h3>
+          <div class="price align-self-start">à partir de 1299 DT</div>
+          <p class="description">
+            Offrez à vos invités une soirée élégante et exclusive, dans une ambiance intime, avec un menu gastronomique personnalisé.
+          </p>
+        </div>
+        <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/recPro.jpg)">
+          <h3>Réceptions Professionnelles</h3>
+          <div class="price align-self-start">à partir de 1379 DT</div>
+          <p class="description">
+            Que ce soit pour un séminaire, un lancement de produit ou un dîner d’affaires, nous créons un cadre raffiné pour vos événements d'entreprise.
+          </p>
+        </div>
+        <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/Anniv.jpg)">
+          <h3>Anniversaires Élégants</h3>
+          <div class="price align-self-start">à partir de 1459 DT</div>
+          <p class="description">
+            Célébrez votre anniversaire avec raffinement : décoration personnalisée, ambiance festive et cuisine haut de gamme.
+          </p>
+        </div>
+        <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(assets/img/recpMariage.png)">
+          <h3>Réceptions de Mariage</h3>
+          <div class="price align-self-start">à partir de 1999 DT</div>
+          <p class="description">
+            Pour un mariage inoubliable, notre équipe met à votre disposition un service complet avec une cuisine d’exception et un décor de rêve.
+          </p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+<!-- Fin Section Événements -->
+
+<!-- Section Chefs -->
+<section id="chefs" class="chefs section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Cheffes</h2>
+    <p><span>Nos</span> <span class="description-title">Cheffes Professionnelles</span></p>
+  </div>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-member">
+          <div class="member-img">
+            <img src="assets/img/chefs/ch2.jpg" class="img-fluid" alt="">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Cheffe Dorcas KISUKIKA</h4>
+            <span>Cheffe Exécutive</span>
+            <p>Visionnaire de la gastronomie fusion, Chef Dorcas KISUKIKA les saveurs africaines, méditerranéennes et européennes dans des créations aussi raffinées que gourmandes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <div class="team-member">
+          <div class="member-img">
+            <img src="assets/img/chefs/ch3.jpg" class="img-fluid" alt="">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Cheffe Awa TRAORE</h4>
+            <span>Cheffe Pâtissière</span>
+            <p>Passionnée de douceurs, Chef Awa  mêle créativité et précision pour offrir des desserts élégants, subtils et parfaitement équilibrés.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+        <div class="team-member">
+          <div class="member-img">
+            <img src="assets/img/chefs/ch1.jpg" class="img-fluid" alt="">
+            <div class="social">
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Cheffe Suzanne Mangela</h4>
+            <span>Cheffe de Cuisine</span>
+            <p>Fort de plusieurs années d’expérience dans des restaurants étoilés, Suzanne Mangela l’excellence culinaire avec une maîtrise parfaite des cuissons et des assaisonnements.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Fin Section Chefs -->
+    <!-- Section reservation-->
+    <section id="book-a-table" class="book-a-table section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Réserver une Table</h2>
+        <p><span>Réservez une Table</span> <span class="description-title">votre place chez Les Délices de Gomez</span></p>
+      </div>
+      <div class="container">
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4 reservation-img" style="background-image: url(assets/img/res.jpg);"></div>
+          <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
+            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Votre nom complet" required>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="phone" class="form-control" placeholder="Votre numéro de téléphone" required>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="date" name="date" class="form-control" required>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="time" name="time" class="form-control" required>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="number" name="people" class="form-control" placeholder="Nombre de personnes" required>
+                </div>
+              </div>
+    
+              <div class="form-group mt-3">
+                <textarea name="message" class="form-control" rows="5" placeholder="Message..."></textarea>
+              </div>
+    
+              <div class="text-center mt-3">
+                <div class="loading">Envoi en cours...</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Votre demande a été envoyée. Nous vous recontacterons rapidement pour confirmer votre réservation. Merci !</div>
+                <button type="submit">Réserver </button>
+              </div>
+            </form>
+            <!-- Fin reservation -->
+    
+          </div>
+    
+        </div>
+      </div>
+    
+    </section>
+    
+
+<!-- Section galerie-->
+<section id="gallery" class="gallery section light-background">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Galerie</h2>
+    <p><span>Découvrez</span> <span class="description-title">Notre Galerie</span></p>
+  </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "centeredSlides": true,
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 0
+            },
+            "768": {
+              "slidesPerView": 3,
+              "spaceBetween": 20
+            },
+            "1200": {
+              "slidesPerView": 5,
+              "spaceBetween": 20
+            }
+          }
+        }
+      </script>
+      <div class="swiper-wrapper align-items-center">
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-1.jpg"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="Image de notre restaurant"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-2.jpg"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="Plats de notre restaurant"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-3.jpg"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="Ambiance du restaurant"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt="Service de notre restaurant"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-5.jpg"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="Cuisine moderne et créative"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-6.jpg"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="Nos chefs au travail"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-7.jpg"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="Vues de notre terrasse"></a></div>
+        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="assets/img/gallery/gallery-8.jpg"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="Célébration dans notre restaurant"></a></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+<!-- fin Section galerie-->
+
+
+    <!-- Section Contact -->
+<section id="contact" class="contact section">
+
+  <!-- Titre de la section -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p><span>Besoin d'aide ?</span> <span class="description-title">Contactez-nous</span></p>
+  </div><!-- Fin Titre de la section -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="mb-5">
+      <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d10.179013!3d36.852296!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13c38c7dbf92e8b1%3A0x23b5860b49fc2da!2sTunis%20Soukra!5e0!3m2!1sen!2stn!4v1683961732791" frameborder="0" allowfullscreen=""></iframe>
+    </div><!-- Fin Google Maps -->
+
+    <div class="row gy-4">
+
+      <div class="col-md-6">
+        <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+          <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+          <div>
+            <h3>Adresse</h3>
+            <p> RDC, kinshasa</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+          <i class="icon bi bi-telephone flex-shrink-0"></i>
+          <div>
+            <h3>Appelez-nous</h3>
+            <p>+243815226902</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+          <i class="icon bi bi-envelope flex-shrink-0"></i>
+          <div>
+            <h3>Email</h3>
+            <p>emmanuelkisukika@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+          <i class="icon bi bi-clock flex-shrink-0"></i>
+          <div>
+            <h3>Heures d'ouverture<br></h3>
+            <p><strong>Lun-Sam :</strong> 12h - 00h ; <strong>Dimanche :</strong> Fermé</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+      <div class="row gy-4">
+      </div>
+    </form>
+  </div>
+</section>
+<!-- /Section Contact -->
+
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Adresse</h4>
+            <p>136 Avenue toko</p>
+            <p>kinshasa, RDC</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+243815226902</span><br>
+              <strong>Email:</strong> <span>emmanuelkisukika@gmail.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Heures d'ouverture</h4>
+            <p>
+              <strong>Lun-Sam :</strong> <span>12h - 00h</span><br>
+              <strong>Dimanche :</strong> <span>Fermé</span>
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <h4>Suivez-nous</h4>
+          <div class="social-links d-flex">
+            <a href="https://x.com/twitter?lang=en" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/felly-kisukika-kayana-b086b8252?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BA6x9OiD2RAClrtozSEbMZA%3D%3D" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright by</span> <strong class="px-1 sitename">Kisukika kayana Fellycia</strong> <span></span></p>
+      
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
